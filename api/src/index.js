@@ -18,9 +18,4 @@ server.use('/storage/capasFilmes', express.static('storage/capasFilmes'));
 server.use(usuarioController);
 server.use(filmeController);
 
-
-
-
-
-
 server.listen(process.env.PORT,() => console.log(`API conecta na porta ${process.env.PORT}`));
