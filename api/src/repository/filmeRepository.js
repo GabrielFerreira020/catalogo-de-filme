@@ -1,4 +1,4 @@
-import { con } from"./connection";
+import { con } from"./connection.js";
 
 export async function inserirFilme(filme){
     const comando =
@@ -9,4 +9,14 @@ export async function inserirFilme(filme){
     filme.id = resposta.insertId;
 
     return filme; 
+}
+
+export async function alterarImagem(imagem, id){
+    const comando =
+    ` UPDATE tb_filme 
+    SET img_filme     = ?
+    WHERE id_filme    = ?`;
+    
+    const [resposta ] = await con.query(comando, [imagem, id]);
+    return resposta.affectedRows;
 }
